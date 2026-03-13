@@ -1,0 +1,1050 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+/* ═══════════════════════════════════════════
+   AyuSethu Portal Styles
+   ═══════════════════════════════════════════ */
+
+/* ── Design Tokens ── */
+:root {
+    --ink: #0f1a14;
+    --paper: #f5f0e8;
+    --sage: #4a7c59;
+    --sage-light: #7aad8a;
+    --sage-pale: #d4e8da;
+    --moss: #2d5a3d;
+    --gold: #b8860b;
+    --gold-light: #e6c84a;
+    --rust: #8b3a1a;
+    --sky: #2a6b8a;
+    --cream: #faf7f0;
+    --rule: #c8b89a;
+    --shadow: rgba(15, 26, 20, 0.12);
+}
+
+/* ── Portal Layout ── */
+.portal-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--paper);
+}
+
+.portal-sidebar {
+    width: 240px;
+    min-width: 240px;
+    background: var(--moss);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 50;
+}
+
+.sidebar-brand {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid rgba(212, 232, 218, 0.15);
+}
+
+.brand-mono {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--cream);
+    display: block;
+}
+
+.category-badge {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-family: 'DM Mono', monospace;
+    margin-top: 6px;
+    display: block;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 16px 0;
+}
+
+.sidebar-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 24px;
+    color: rgba(212, 232, 218, 0.65);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    border-left: 3px solid transparent;
+    font-family: 'DM Sans', sans-serif;
+    user-select: none;
+}
+
+.sidebar-nav-item:hover,
+.sidebar-nav-item.active {
+    color: var(--cream);
+    background: rgba(255, 255, 255, 0.07);
+    border-left-color: var(--gold-light);
+}
+
+.sidebar-nav-item .nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar-footer {
+    padding: 16px 24px;
+    border-top: 1px solid rgba(212, 232, 218, 0.15);
+}
+
+.compliance-tag {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: rgba(212, 232, 218, 0.5);
+    font-family: 'DM Mono', monospace;
+    line-height: 1.5;
+    display: block;
+}
+
+.sidebar-logout {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    color: rgba(212, 232, 218, 0.5);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.sidebar-logout:hover {
+    color: var(--cream);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Main Content ── */
+.portal-main {
+    margin-left: 240px;
+    flex: 1;
+    min-height: 100vh;
+}
+
+.portal-topbar {
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
+.topbar-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--moss);
+}
+
+.topbar-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.portal-content {
+    padding: 40px;
+    max-width: 1200px;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+    background: var(--sage);
+    color: var(--cream);
+    border: none;
+    padding: 8px 20px;
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.15s;
+}
+
+.btn-primary:hover {
+    background: var(--moss);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--sage);
+    border: 1px solid var(--sage);
+    padding: 8px 20px;
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.15s;
+}
+
+.btn-outline:hover {
+    background: var(--sage-pale);
+}
+
+/* ── Product Header ── */
+.product-header {
+    padding: 48px 40px 36px;
+    color: var(--cream);
+    position: relative;
+}
+
+.ph-oils {
+    background: linear-gradient(135deg, #3d2b1a 0%, #6b4520 100%);
+}
+
+.ph-herbs {
+    background: linear-gradient(135deg, #1a3d2b 0%, #2d6b45 100%);
+}
+
+.ph-cosmetics {
+    background: linear-gradient(135deg, #1a2b3d 0%, #204560 100%);
+}
+
+.ph-medicines {
+    background: linear-gradient(135deg, #3d1a2b 0%, #6b2045 100%);
+}
+
+.ph-vegetables {
+    background: linear-gradient(135deg, #2b3d1a 0%, #456b20 100%);
+}
+
+.product-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+    opacity: 0.7;
+}
+
+.product-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+}
+
+.product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.ptag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Section Headers ── */
+.sec-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 36px 0 20px;
+}
+
+.sec-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--rule);
+    min-width: 64px;
+}
+
+.sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin: 0;
+}
+
+.sec-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    margin-left: 16px;
+}
+
+/* ── Cards ── */
+.card {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 24px;
+    margin-bottom: 16px;
+}
+
+.card.gold-top {
+    border-top: 3px solid var(--gold);
+}
+
+.card.rust-top {
+    border-top: 3px solid var(--rust);
+}
+
+.card.sky-top {
+    border-top: 3px solid var(--sky);
+}
+
+.card.moss-top {
+    border-top: 3px solid var(--moss);
+}
+
+/* ── Badges ── */
+.badge-green {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: var(--sage-pale);
+    color: var(--moss);
+}
+
+.badge-gold {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: #fef3cd;
+    color: var(--gold);
+}
+
+.badge-rust {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: #f8d7da;
+    color: var(--rust);
+}
+
+.badge-sky {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: #d1ecf1;
+    color: var(--sky);
+}
+
+/* ── Metric Strip ── */
+.metric-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.metric {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 20px;
+    text-align: center;
+}
+
+.metric-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--moss);
+    margin-bottom: 4px;
+}
+
+.metric-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--rule);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ── Big Table ── */
+.big-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+}
+
+.big-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rule);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--rule);
+    background: var(--cream);
+    white-space: nowrap;
+}
+
+.big-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(200, 184, 154, 0.3);
+    color: var(--ink);
+    vertical-align: middle;
+}
+
+.big-table tr:hover td {
+    background: rgba(74, 124, 89, 0.04);
+}
+
+.big-table .mono {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+}
+
+/* ── Process Box (Warnings / Info) ── */
+.process-box {
+    background: var(--sage-pale);
+    border-left: 4px solid var(--moss);
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    border-radius: 0 2px 2px 0;
+}
+
+.process-box.warning {
+    background: #fef3cd;
+    border-left-color: var(--gold);
+}
+
+.process-box.danger {
+    background: #f8d7da;
+    border-left-color: var(--rust);
+}
+
+.process-box.urgent {
+    background: #f8d7da;
+    border-left-color: #cc0000;
+}
+
+/* ── Cert Grid ── */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.cert {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: 16px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cert-icon {
+    font-size: 24px;
+}
+
+.cert-info .cert-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--rule);
+}
+
+.cert-info .cert-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 600;
+}
+
+/* ── Form Fields ── */
+.portal-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 24px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-field-full {
+    grid-column: 1 / -1;
+}
+
+.field-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.field-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+}
+
+.field-required {
+    color: var(--rust);
+    margin-left: 2px;
+}
+
+.field-authority {
+    font-size: 9px !important;
+    padding: 1px 6px !important;
+    flex-shrink: 0;
+}
+
+.field-sublabel {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--rule);
+    margin-bottom: 2px;
+}
+
+.field-input-wrap {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.field-input {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--sage-light);
+    border-radius: 4px;
+    background: rgba(74, 124, 89, 0.06);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    transition: border-color 0.15s;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.field-input:focus {
+    border-color: var(--moss);
+    box-shadow: 0 0 0 2px rgba(45, 90, 61, 0.1);
+}
+
+.field-input::placeholder {
+    color: var(--rule);
+    font-size: 12px;
+}
+
+.field-textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.field-unit {
+    position: absolute;
+    right: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--rule);
+    pointer-events: none;
+}
+
+.field-limit {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--sage);
+}
+
+.field-hint {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--rule);
+    font-style: italic;
+}
+
+.field-status-dot {
+    margin-left: 8px;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.field-status-dot.pass {
+    color: var(--sage);
+}
+
+.field-status-dot.fail {
+    color: var(--rust);
+}
+
+/* Radio & Checkbox */
+.field-radio-group,
+.field-checkbox-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.field-radio-label,
+.field-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.field-radio-label input,
+.field-checkbox-label input {
+    accent-color: var(--sage);
+}
+
+/* ── Quick Actions ── */
+.quick-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 24px 0;
+}
+
+/* ── Form Actions ── */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+}
+
+/* ── COA Styles ── */
+.coa-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid var(--rule);
+}
+
+.coa-header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 32px 40px;
+    text-align: center;
+}
+
+.coa-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin: 0 0 8px 0;
+}
+
+.coa-header .coa-mono {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+}
+
+.coa-body {
+    padding: 32px 40px;
+}
+
+.coa-qr {
+    text-align: center;
+    margin: 24px 0;
+    padding: 24px;
+    border: 2px dashed var(--rule);
+    color: var(--rule);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+}
+
+.coa-verdict {
+    text-align: center;
+    margin: 32px 0;
+    padding: 24px;
+}
+
+.coa-verdict .verdict-badge {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    display: inline-block;
+    padding: 12px 40px;
+    border-radius: 4px;
+}
+
+.verdict-pass {
+    background: var(--sage-pale);
+    color: var(--moss);
+}
+
+.verdict-fail {
+    background: #f8d7da;
+    color: var(--rust);
+}
+
+.verdict-conditional {
+    background: #fef3cd;
+    color: var(--gold);
+}
+
+.coa-stamp {
+    border: 2px dashed var(--rule);
+    padding: 24px;
+    text-align: center;
+    margin: 24px 0;
+    color: var(--rule);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+}
+
+.coa-signature {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+}
+
+.coa-hash {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--rule);
+    text-align: center;
+    margin-top: 16px;
+    word-break: break-all;
+}
+
+.coa-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    padding: 24px 40px;
+    border-top: 1px solid var(--rule);
+}
+
+/* ── Lot Tracer ── */
+.tracer-search {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    max-width: 600px;
+}
+
+.tracer-search input {
+    flex: 1;
+}
+
+.tracer-timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.tracer-timeline::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--sage-pale);
+}
+
+.tracer-event {
+    position: relative;
+    margin-bottom: 32px;
+    padding-left: 24px;
+}
+
+.tracer-event-dot {
+    position: absolute;
+    left: -32px;
+    top: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--sage);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    z-index: 2;
+}
+
+.tracer-event-dot.pending {
+    background: var(--rule);
+}
+
+.tracer-event .event-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+}
+
+.tracer-event .event-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--rule);
+    margin-bottom: 4px;
+}
+
+.tracer-event .event-actor {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--ink);
+}
+
+.tracer-event .event-hash {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--rule);
+    word-break: break-all;
+    margin-top: 4px;
+}
+
+.tracer-map-placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--sage-pale);
+    border: 2px dashed var(--sage-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--sage);
+    margin: 24px 0;
+    border-radius: 4px;
+}
+
+/* ── Accordion ── */
+.accordion {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    margin-bottom: 12px;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--cream);
+    transition: background 0.15s;
+}
+
+.accordion-header:hover {
+    background: rgba(74, 124, 89, 0.04);
+}
+
+.accordion-body {
+    padding: 16px 20px;
+    border-top: 1px solid var(--rule);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+}
+
+/* ── Dashboard Grid ── */
+.dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.alerts-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.alert-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #f8d7da;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--rust);
+}
+
+/* ── Test Results Table ── */
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+.results-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rule);
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--rule);
+    white-space: nowrap;
+}
+
+.results-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(200, 184, 154, 0.3);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    vertical-align: middle;
+}
+
+.results-table input {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid var(--sage-light);
+    border-radius: 3px;
+    background: rgba(74, 124, 89, 0.06);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--ink);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.results-table input:focus {
+    border-color: var(--moss);
+}
+
+.results-table .mono {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+}
+
+/* ── Repeatable Row ── */
+.repeatable-row {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: rgba(250, 247, 240, 0.5);
+}
+
+.add-row-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    color: var(--sage);
+    border: 1px dashed var(--sage);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    transition: all 0.15s;
+}
+
+.add-row-btn:hover {
+    background: var(--sage-pale);
+}
+
+/* ── Login Category Dropdown ── */
+.field-hint-login {
+    font-size: 11px;
+    color: #6b7280;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* (Google Fonts import moved to top of file) */
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .portal-sidebar {
+        width: 200px;
+        min-width: 200px;
+    }
+
+    .portal-main {
+        margin-left: 200px;
+    }
+
+    .portal-content {
+        padding: 20px;
+    }
+
+    .portal-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .portal-sidebar {
+        display: none;
+    }
+
+    .portal-main {
+        margin-left: 0;
+    }
+}
